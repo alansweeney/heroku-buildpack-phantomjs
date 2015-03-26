@@ -37,7 +37,11 @@ mv $CACHE_DIR/libstdc++.so.6 $BUILD_DIR/vendor/phantomjs/bin/libstdc++.so.6
 echo "-----> exporting PATH and LIBRARY_PATH"
 PROFILE_PATH="$BUILD_DIR/.profile.d/phantomjs.sh"
 mkdir -p $(dirname $PROFILE_PATH)
-echo 'export PATH="$PATH:vendor/phantomjs/bin"' >> $PROFILE_PATH
-echo 'export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:vendor/phantomjs/bin"' >> $PROFILE_PATH
+echo 'export PATH="$PATH:/app/vendor/phantomjs/bin"' >> $PROFILE_PATH
+echo 'export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/app/vendor/phantomjs/lib"' >> $PROFILE_PATH
 
+chmod 777 $BUILD_DIR/vendor/phantomjs
+chmod 777 $BUILD_DIR/vendor/phantomjs/bin
 chmod 777 $BUILD_DIR/vendor/phantomjs/bin/*
+chmod 777 $BUILD_DIR/vendor/phantomjs/lib
+chmod 777 $BUILD_DIR/vendor/phantomjs/lib/*
